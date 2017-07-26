@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+ 
+    <form-beans>
+ 
+       <form-bean name="helloWorldForm"
+                  type="org.sebek.struts1.example.form.HelloWorldForm"/>
+         
+        <form-bean name="employeeForm"
+                  type="org.sebek.struts1.example.form.EmployeeForm"/>
+         
+    </form-beans>
+
+    <global-exceptions>
+    </global-exceptions>
+    
+    <global-forwards>
+        <forward name="welcome" path="/welcome"/> 
+    </global-forwards>
+    
+    <action-mappings>
+
+       <action path="/helloWorld"
+               type="org.sebek.struts1.example.action.HelloWorldAction"
+               name="helloWorldForm">
+            <forward name="success" path="/pages/helloworld/helloWorld.jsp"/>
+       </action>
+       
+       <action path="/welcome"
+               type="org.sebek.struts1.example.action.WelcomeAction">
+            <forward name="success" path=".view.welcome"/>
+       </action>
+       
+       <action path="/employeeSummary"
+               type="org.sebek.struts1.example.action.EmployeeAction"
+               name="employeeForm"
+               parameter="method"
+               scope="session"
+               validate="false"
+               input=".view.employee.summary">
+            <forward name="success" path=".view.employee.summary"/>
+        </action>
+
+       <action path="/employee"
+               type="org.sebek.struts1.example.action.EmployeeAction"
+               name="employeeForm"
+               parameter="method"
+               scope="session"
+               validate="false"
+               input=".view.employee">
+            <forward name="success" path=".view.employee"/>
+        </action>
+       
+       <action path="/employeeUpdate"
+               type="org.sebek.struts1.example.action.EmployeeUpdateAction"
+               name="employeeForm"
+               parameter="method"
+               scope="session"
+               validate="true"
+               input=".view.employee">
+            <forward name="success" path=".view.employee"/>
+            <forward name="add" path="/do/employee?method=add" redirect="true"/>
+            <forward name="summary" path="/do/employeeSummary?method=add" redirect="true"/>
+        </action>
+                        
+        <action path="/menuController" 
+                type="org.sebek.struts1.example.controller.MenuControllerAction"/>
+        
+        <action path="/ajax/getEmployeeList"
+                type="org.sebek.struts1.example.ajax.EmployeeListAjaxAction"/>
+                
+        <action path="/ajax/getJobList"
+                type="org.sebek.struts1.example.ajax.JobListAjaxAction"/>
+                
+    </action-mappings>
+
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="messages"/>
+    
+    <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property property="definitions-config" value="/WEB-INF/config/tiles-defs.xml"/>
+    </plug-in>
+    
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames" 
+                      value="/org/apache/struts/validator/validator-rules.xml, /WEB-INF/config/validation.xml"/>
+    </plug-in>
+    
+</struts-config>

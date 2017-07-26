@@ -1,0 +1,89 @@
+body
+{
+    color:                      #000000;
+    background-color:           #EEEECB;
+    margin:                     0px;
+    padding:                    0px;
+    text-align:                 center; /* IE centering */
+}
+
+form
+{
+    margin:                     0px;
+    padding:                    0px;
+}
+
+.errors {
+	font-family: Verdana, Arial;
+	font-color: red;
+	font-weight: bold;
+}
+/*
+.error_messages
+{
+    margin-top:                 5px;
+    margin-left:                10px;
+    text-align:                 center;
+    color:                      #000000;
+    font-family:                Verdana, Arial;
+    clear:                      both;
+}
+
+.error_messages_inner
+{
+    font-size:                  75%;
+    font-weight:                bolder;
+    background-color:           #E5DEB3;
+}
+
+.error_messages_inner ul
+{
+    list-style-type:            square;
+    margin-left:                20px;
+    padding-left:               0px;
+    margin-top:                 0px;
+}
+
+.error_messages_inner li
+{
+    margin-top:                 3px;
+    font-weight:                bold;
+}
+
+.error_messages_wrap
+{
+    background-color:           #FFCC33;
+    text-align:                 left;
+    width:                      975px;
+}
+*/
+
+.tableDetail {
+	border : inset 1px;
+	border-collapse : separate;
+	width : 100%;
+}
+
+.myToolsMyReportsMenu {
+	width : 232px;
+}
+
+.tableEditHeader {
+	background : #336699;
+}
+
+.leftHeader_MyTools {
+	font-family : Tahoma, verdana, Arial, sans-serif;
+	font-size : 11px;
+	font-weight : bold;
+	color : white;
+	width : 232px;
+	height : 15px;
+	background : #336699;
+}
+
+
+
+.button {
+	color:light-blue;
+}

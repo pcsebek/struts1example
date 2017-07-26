@@ -1,0 +1,43 @@
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+"http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+
+	<definition name=".view.default" path="/pages/layouts/defaultLayout.jsp">
+	   <put name="title" value="Default Layout Title" type="string"/>
+	   <put name="pageCss" value=""/>
+	   <put name="header" value="/pages/common/header.jsp" />
+       <put name="screenName" value=""/>
+       <put name="menu" value=""/>
+       <put name="errors" value="/pages/common/error.jsp"/>
+	   <put name="body-content" value="/pages/common/body-content.jsp"/>
+	   <put name="footer" value="/pages/common/footer.jsp" />
+	</definition>
+	
+   <definition name=".view.menu" path="/pages/common/menu.jsp" controllerUrl="/do/menuController"/>
+
+	<definition name=".view.success" extends=".view.default" >
+	   <put name="title" value="SUCCESS"/>
+	   <put name="body-content" value="/pages/common/success.jsp"/>
+	</definition>
+	
+    <definition name=".view.employee.summary" extends=".view.default">
+       <put name="title" value="Employee Summary"/>
+       <put name="menu" value=".view.menu"/>
+       <put name="body-content" value="/pages/employee/employeeSummary.jsp"/>
+    </definition>
+
+	<definition name=".view.employee" extends=".view.default">
+	   <put name="title" value="EMPLOYEE FORM"/>
+       <put name="menu" value=".view.menu"/>
+	   <put name="body-content" value="/pages/employee/employee.jsp"/>
+	</definition>
+
+    <definition name=".view.welcome" extends=".view.default">
+		<put name="title" value="Welcome to Struts 1 Example" type="string"/>
+        <put name="menu" value=".view.menu"/>
+        <put name="screenName" value="welcome"/>
+		<put name="body-content" value="/pages/welcome.jsp"/>
+    </definition>
+    
+ </tiles-definitions>

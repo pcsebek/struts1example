@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE form-validation PUBLIC
+    "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+    "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+<form-validation>
+    <global>
+        <constant>
+            <constant-name>numberFormat</constant-name>
+            <constant-value>^[0-9]*$</constant-value>
+        </constant>
+    </global>
+    <formset>
+        <form name="employeeForm">
+            <field property="firstName" depends="required">
+                <arg key="label.first.name"/>
+            </field>
+            
+            <field property="lastName" depends="required">
+                <arg key="label.last.name"/>
+            </field>
+            
+            <field property="salary" depends="required,mask">
+                <arg key="label.salary"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${numberFormat}</var-value>
+                </var>
+            </field>
+        </form>
+    </formset>
+</form-validation>
