@@ -8,4 +8,6 @@ bin/
 .classpath
 .project
 .tomcatplugin
+src/main/webapp/.#webclasspath
+
 
